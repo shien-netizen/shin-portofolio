@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xShinigami — Illustrator Commission</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark: #1A1A2E;
+            --darker: #16213E;
+            --accent: #E94560;
+            --accent-light: #FF6B81;
+            --lavender: #C7B9FF;
+            --mint: #B5EAD7;
+            --peach: #FFDAC1;
+            --babyblue: #A2D2FF;
+            --cream: #FFF5F5;
+            --white: #FFFFFF;
+            --text: #2D2D44;
+            --text-light: #6B6B8D;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .logo, .price-tag {
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .logo::before {
+            content: "✦";
+            color: var(--accent);
+            font-size: 1.4rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: rgba(255,255,255,0.8);
+            font-weight: 700;
+            font-size: 0.95rem;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 5% 4rem;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--darker) 50%, #0F0F23 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+            top: -100px;
+            right: -100px;
+            opacity: 0.3;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--lavender) 0%, transparent 70%);
+            bottom: -50px;
+            left: -50px;
+            opacity: 0.2;
+            animation: pulse 5s ease-in-out infinite 1s;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.2; }
+            50% { transform: scale(1.2); opacity: 0.4; }
+        }
+
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1100px;
+            width: 100%;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            text-align: left;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.6rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 10px rgba(233, 69, 96, 0.4); }
+            50% { box-shadow: 0 0 25px rgba(233, 69, 96, 0.7); }
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.2rem;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.3rem;
+            color: var(--lavender);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .hero-text .desc {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-light);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(233, 69, 96, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image-placeholder {
+            width: 320px;
+            height: 320px;
+            background: linear-gradient(135deg, var(--accent), var(--lavender));
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            box-shadow: 0 20px 60px rgba(233, 69, 96, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image-placeholder::before {
+            content: "";
+            position: absolute;
+            inset: 4px;
+            background: var(--dark);
+            border-radius: 26px;
+            z-index: 0;
+        }
+
+        .hero-image-placeholder span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 5%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            color: var(--dark);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+        }
+
+        /* Gallery */
+        #gallery {
+            background: var(--white);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 3px solid var(--dark);
+            aspect-ratio: 3/4;
+            background: linear-gradient(135deg, var(--lavender), var(--babyblue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            border-color: var(--accent);
+        }
+
+        .gallery-item .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(26,26,46,0.95));
+            padding: 2rem 1rem 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-item .overlay h3 {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .gallery-item .overlay p {
+            color: var(--lavender);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Pricing */
+        #pricing {
+            background: linear-gradient(180deg, var(--dark) 0%, var(--darker) 100%);
+            color: white;
+            max-width: 100%;
+            padding: 5rem 5%;
+        }
+
+        #pricing .section-title {
+            color: white;
+        }
+
+        #pricing .section-title::after {
+            background: var(--accent);
+        }
+
+        #pricing .section-subtitle {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .pricing-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: rgba(255,255,255,0.05);
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .pricing-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .pricing-card.featured {
+            background: linear-gradient(135deg, rgba(233,69,96,0.2), rgba(199,185,255,0.1));
+            border-color: var(--accent);
+            transform: scale(1.03);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.03) translateY(-8px);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: white;
+            padding: 0.3rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+        }
+
+        .pricing-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.4rem;
+            color: white;
+            margin-bottom: 0.3rem;
+        }
+
+        .pricing-card .type-desc {
+            color: var(--lavender);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .price-range {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-light);
+            margin: 1rem 0;
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        .price-note {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin: 1.5rem 0;
+        }
+
+        .pricing-features li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: rgba(255,255,255,0.8);
+            font-size: 0.95rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .pricing-features li::before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* Payment Section */
+        #payment {
+            background: var(--white);
+        }
+
+        .payment-box {
+            background: linear-gradient(135deg, var(--dark), var(--darker));
+            border-radius: 24px;
+            padding: 3rem;
+            color: white;
+            border: 3px solid var(--accent);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        .payment-box h3 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .payment-box h3::after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+            margin: 0.8rem auto 0;
+            border-radius: 2px;
+        }
+
+        .payment-rules {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .payment-rules li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: rgba(255,255,255,0.85);
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .payment-rules li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .payment-example {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--accent);
+        }
+
+        .payment-example h4 {
+            color: var(--accent-light);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .payment-example ul {
+            list-style: none;
+        }
+
+        .payment-example ul li {
+            padding: 0.4rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .payment-example ul li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--lavender);
+        }
+
+        .payment-note {
+            text-align: center;
+            color: rgba(255,255,255,0.7);
+            font-style: italic;
+            margin-top: 1.5rem;
+            line-height: 1.7;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: linear-gradient(180deg, var(--cream) 0%, var(--white) 100%);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .contact-info h3::after {
+            content: "";
+            display: block;
+            width: 40px;
+            height: 3px;
+            background: var(--accent);
+            margin-top: 0.5rem;
+            border-radius: 2px;
+        }
+
+        .contact-info p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            padding: 1.2rem 1.5rem;
+            background: white;
+            border: 2px solid rgba(0,0,0,0.08);
+            border-radius: 16px;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 700;
+            transition: all 0.3s;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .contact-link:hover {
+            border-color: var(--accent);
+            transform: translateX(8px);
+            box-shadow: 0 5px 20px rgba(233, 69, 96, 0.15);
+        }
+
+        .contact-link .icon {
+            font-size: 1.8rem;
+            width: 40px;
+            text-align: center;
+        }
+
+        .contact-link .info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-link .label {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-link .value {
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2.5rem;
+            border: 2px solid rgba(0,0,0,0.08);
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+
+        .form-group {
+            margin-bottom: 1.3rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.9rem 1.2rem;
+            border: 2px solid rgba(0,0,0,0.1);
+            border-radius: 12px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 1rem;
+            background: var(--cream);
+            transition: all 0.3s;
+            color: var(--text);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: white;
+            box-shadow: 0 0 0 4px rgba(233, 69, 96, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 3px solid var(--accent);
+        }
+
+        footer .brand {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        footer p {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero-container,
+            .contact-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .gallery-grid,
+            .pricing-container {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+
+            .pricing-card.featured:hover {
+                transform: translateY(-8px);
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .payment-box {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-links {
+                gap: 0.2rem;
+            }
+
+            .nav-links a {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            .hero-image-placeholder {
+                width: 250px;
+                height: 250px;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="logo">xShinigami</a>
+        <ul class="nav-links">
+            <li><a href="#home" class="active">Beranda</a></li>
+            <li><a href="#gallery">Galeri</a></li>
+            <li><a href="#pricing">Harga</a></li>
+            <li><a href="#payment">Pembayaran</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-text">
+                <div class="hero-badge">✦ Open Commission 2026</div>
+                <h1>Open Commission!</h1>
+                <p class="subtitle">Ilustrasi Anime Style • Light Novel Style</p>
+                <p class="desc">untuk Cerita & Karakter. Freelance illustrator yang siap mewujudkan ide-ide kreatifmu dalam bentuk ilustrasi berkualitas.</p>
+                <div class="hero-buttons">
+                    <a href="#pricing" class="btn btn-primary">Lihat Harga</a>
+                    <a href="#contact" class="btn btn-secondary">DM Commission</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-image-placeholder"><span>🎨</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <div class="section-header">
+            <h2 class="section-title">Artworks</h2>
+            <p class="section-subtitle">by @_xshinigami_ — Karya commission dan personal work</p>
+        </div>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                🌸
+                <div class="overlay">
+                    <h3>Half Body + Color + Background</h3>
+                    <p>Commission Work</p>
+                </div>
+            </div>
+            <div class="gallery-item" style="background: linear-gradient(135deg, #E8E8E8, #D0D0D0);">
+                🖤
+                <div class="overlay">
+                    <h3>Half Body + Monochrome</h3>
+                    <p>Commission Work</p>
+                </div>
+            </div>
+            <div class="gallery-item" style="background: linear-gradient(135deg, var(--lavender), var(--peach));">
+                💜
+                <div class="overlay">
+                    <h3>Full Body + Color + Background</h3>
+                    <p>Commission Work</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing">
+        <div class="section-header">
+            <h2 class="section-title">Pricelist</h2>
+            <p class="section-subtitle">Pilih tipe ilustrasi yang sesuai kebutuhanmu</p>
+        </div>
+
+        <div class="pricing-container">
+            <div class="pricing-card">
+                <div class="pricing-icon">👤</div>
+                <h3>Headshot</h3>
+                <p class="type-desc">Mono/Color — BG/no BG</p>
+                <div class="price-range">40k - 70k</div>
+                <p class="price-note">per karakter</p>
+                <ul class="pricing-features">
+                    <li>Fokus pada wajah & ekspresi</li>
+                    <li>Pilihan monochrome atau full color</li>
+                    <li>Background optional</li>
+                    <li>High-res file</li>
+                </ul>
+                <a href="#contact" class="btn btn-primary" style="width: 100%;">Pesan</a>
+            </div>
+
+            <div class="pricing-card featured">
+                <div class="pricing-badge">POPULER</div>
+                <div class="pricing-icon">🧍</div>
+                <h3>Half Body</h3>
+                <p class="type-desc">Mono/Color — BG/no BG</p>
+                <div class="price-range">60k - 130k</div>
+                <p class="price-note">per karakter</p>
+                <ul class="pricing-features">
+                    <li>Sampai pinggang / setengah badan</li>
+                    <li>Pilihan monochrome atau full color</li>
+                    <li>Background optional</li>
+                    <li>High-res file</li>
+                    <li>Detail pakaian & pose</li>
+                </ul>
+                <a href="#contact" class="btn btn-primary" style="width: 100%;">Pesan</a>
+            </div>
+
+            <div class="pricing-card">
+                <div class="pricing-icon">🧍‍♀️</div>
+                <h3>Full Body</h3>
+                <p class="type-desc">Mono/Color — BG/no BG</p>
+                <div class="price-range">80k - 150k</div>
+                <p class="price-note">per karakter</p>
+                <ul class="pricing-features">
+                    <li>Seluruh badan karakter</li>
+                    <li>Pilihan monochrome atau full color</li>
+                    <li>Background optional</li>
+                    <li>High-res file</li>
+                    <li>Detail pose & prop kompleks</li>
+                </ul>
+                <a href="#contact" class="btn btn-primary" style="width: 100%;">Pesan</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Section -->
+    <section id="payment">
+        <div class="section-header">
+            <h2 class="section-title">Payment System</h2>
+            <p class="section-subtitle">Ketentuan pembayaran untuk kenyamanan bersama</p>
+        </div>
+
+        <div class="payment-box">
+            <h3>Payment System</h3>
+            <ul class="payment-rules">
+                <li>Pembayaran menggunakan <strong>DP 50%</strong> di awal sebelum pengerjaan dimulai.</li>
+                <li>Sisa pembayaran dilakukan setiap <strong>1 artwork selesai</strong>.</li>
+                <li>Jika memesan lebih dari 1 artwork, pembayaran <strong>tidak digabung</strong>.</li>
+            </ul>
+
+            <div class="payment-example">
+                <h4>Contoh: Order 3 Artwork</h4>
+                <ul>
+                    <li>DP dibayar di awal</li>
+                    <li>Artwork ke-1 selesai → bayar</li>
+                    <li>Artwork ke-2 selesai → bayar</li>
+                    <li>Artwork ke-3 selesai → bayar</li>
+                </ul>
+            </div>
+
+            <p class="payment-note">
+                Sistem ini dibuat supaya proses kerja aman, adil, dan transparan untuk kedua belah pihak.<br>
+                Jika belum ada yang dimengerti bisa ditanyakan langsung lewat DM.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="section-header">
+            <h2 class="section-title">Contact Me</h2>
+            <p class="section-subtitle">DM for Commission — Hubungi aku di platform favoritmu</p>
+        </div>
+
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Mari Berkolaborasi!</h3>
+                <p>Tertarik untuk commission? Langsung aja DM di salah satu platform di bawah ini. Aku akan membalas secepat mungkin!</p>
+                
+                <div class="contact-links">
+                    <a href="https://instagram.com/_xshinigami_" target="_blank" class="contact-link">
+                        <span class="icon">📸</span>
+                        <div class="info">
+                            <span class="label">Instagram</span>
+                            <span class="value">@_xshinigami_</span>
+                        </div>
+                    </a>
+                    <a href="https://tiktok.com/@_xshinigami9_" target="_blank" class="contact-link">
+                        <span class="icon">🎵</span>
+                        <div class="info">
+                            <span class="label">TikTok</span>
+                            <span class="value">@_xshinigami9_</span>
+                        </div>
+                    </a>
+                    <a href="https://wa.me/6283874915417" target="_blank" class="contact-link">
+                        <span class="icon">💬</span>
+                        <div class="info">
+                            <span class="label">WhatsApp</span>
+                            <span class="value">0838-7491-5417</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Terima kasih! Pesanmu sudah terkirim. Aku akan balas secepatnya via DM ya! ✨');">
+                <div class="form-group">
+                    <label for="name">Nama Kamu</label>
+                    <input type="text" id="name" placeholder="Contoh: Budi Santoso" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email / Kontak</label>
+                    <input type="text" id="email" placeholder="email@kamu.com atau IG kamu" required>
+                </div>
+                <div class="form-group">
+                    <label for="type">Tipe Commission</label>
+                    <select id="type" required>
+                        <option value="">Pilih tipe ilustrasi...</option>
+                        <option value="headshot">Headshot (40k-70k)</option>
+                        <option value="half">Half Body (60k-130k)</option>
+                        <option value="full">Full Body (80k-150k)</option>
+                        <option value="other">Lainnya / Custom</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Detail Request</label>
+                    <textarea id="message" placeholder="Ceritakan karakter yang diinginkan: pose, ekspresi, warna, background, dll..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Kirim Request ✨</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="brand">✦ xShinigami</div>
+        <p>Illustrator Commission • Anime & Light Novel Style</p>
+        <p style="margin-top: 0.5rem;">© 2026 — @_xshinigami_</p>
+    </footer>
+
+    <script>
+        // Active Navigation on Scroll
+        const sections = document.querySelectorAll('section, .hero');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth fade-in on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.pricing-card, .gallery-item, .payment-box, .contact-link').forEach(el => {
+            el.classList.add('fade-in');
+            observer.observe(el);
+        });
+    </script>
+
+</body>
+</html>
